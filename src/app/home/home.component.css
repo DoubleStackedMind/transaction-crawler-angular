@@ -1,0 +1,48 @@
+.example-form-field {
+  width: 200px;
+}
+
+.example-margin {
+  color: white;
+}
+.navbar-brand {
+  font-weight: bold;
+  color: #1e1e1e;
+}
+
+.bold-tag {
+  font-weight: bold;
+  color: #ff5b51;
+}
+
+.mat-input-element {
+  color: #ff884d;
+}
+.container {
+  margin-top: 2%;
+  margin-left: 1%;
+}
+
+.example-card {
+  max-width: 400px;
+  color: #1e1e1e;
+  background-color: #ff884d;
+}
+
+.mat-card-title {
+  color: white;
+}
+
+.container-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-button {
+  color: white;
+}
+
+.mat-radio-button {
+  padding-right: 1vw;
+  color: white;
+}

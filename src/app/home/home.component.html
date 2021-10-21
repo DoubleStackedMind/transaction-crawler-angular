@@ -1,0 +1,83 @@
+
+  <nav class="navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+          <div class="grid-container">
+        <img src="../../assets/Ether-logo.svg" alt="" width="50" height="50" class="d-inline-block align-text-center">
+        Ethereum Transactions Crawler - <span class="bold-tag">ETC</span>
+    </div>
+      </a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-md-auto">
+            <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-title>Search for Transactions</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <div class="container-card">
+                    <div class="input-container">
+                    <mat-form-field class="example-form-field" appearance="fill">
+                        <mat-label>Wallet Address</mat-label>
+                        <input ng-model="myInput" matInput style="color: white;" type="text" [(ngModel)]="value">
+                        <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                          <mat-icon style="color: rgb(208, 199, 199);">close</mat-icon>
+                        </button>
+                      </mat-form-field>
+                      <mat-form-field class="example-form-field" appearance="fill">
+                        <mat-label>Starting Block</mat-label>
+                        <input matInput type="text"  style="color: white;" [(ngModel)]="block">
+                        <button *ngIf="block" matSuffix mat-icon-button aria-label="Clear" (click)="block=''">
+                          <mat-icon style="color: rgb(208, 199, 199);">close</mat-icon>
+                        </button>
+                      </mat-form-field>
+                    </div>
+                    <div class="radio-container">
+                        <label class="example-margin">Transactions:</label><br>
+                        <mat-radio-group [(ngModel)]="action">
+                          <mat-radio-button class="example-margin" value="txlist">Outgoing</mat-radio-button>
+                          <mat-radio-button class="example-margin" value="txlistinternal">Incoming</mat-radio-button>
+                        </mat-radio-group>
+                      </div>
+                  </div>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button [disabled]="value === '' || action === '' || block === ''" [routerLink]="['/transactions', value, action, block ]" routerLinkActive="active">Search</button>
+                </mat-card-actions>
+              </mat-card>
+  </div>
+
+      <div class="col col-md-auto">
+          <mat-card class="example-card">
+              <mat-card-header>
+                <mat-card-title>Balance Checker</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <mat-form-field class="example-form-field" appearance="fill">
+                  <mat-label>Wallet Address</mat-label>
+                  <input ng-model="myInput" matInput style="color: white;" type="text" [(ngModel)]="address">
+                  <button *ngIf="address" matSuffix mat-icon-button aria-label="Clear" (click)="address=''">
+                    <mat-icon style="color: rgb(208, 199, 199);">close</mat-icon>
+                  </button>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Choose a date</mat-label>
+                  <input matInput [matDatepicker]="picker" style="color: white;" [(ngModel)]="givenDate">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </mat-card-content>
+              <mat-card-actions>
+                <button mat-button [disabled]="givenDate === '' || address === ''" (click)="getBalance()">Check</button>
+              </mat-card-actions>
+            </mat-card>
+</div>
+
+
+
+  </div>
+  </div>
+  

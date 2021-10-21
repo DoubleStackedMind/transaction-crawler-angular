@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: false,
+  apiUrl: window['env']['apiUrl'] || 'default',
+  debug: window['env']['debug'] || false,
 };

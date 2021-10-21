@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="column">
+<button style="background-color: transparent; border: none;"><mat-icon style="color: #ff884d;" (click)="GoBack()">arrow_back_ios</mat-icon></button>
+
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+       *ngIf="isLoadingResults || isRateLimitReached">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
+      GitHub's API rate limit has been reached. It will be reset in one minute.
+    </div>
+  </div>
+
+  <div class="example-table-container">
+
+    <table mat-table [dataSource]="data" class="table table-striped table-responsive-md btn-table"
+           matSort matSortActive="value" matSortDisableClear matSortDirection="asc">
+      <!-- Number Column -->
+      <ng-container matColumnDef="from">
+        <th mat-header-cell *matHeaderCellDef>From</th>
+        <td mat-cell *matCellDef="let row">{{row.from}}</td>
+      </ng-container>
+
+      <!-- Title Column -->
+      <ng-container matColumnDef="to">
+        <th mat-header-cell *matHeaderCellDef>To</th>
+        <td mat-cell *matCellDef="let row">{{row.to}}</td>
+      </ng-container>
+
+      <!-- State Column -->
+      <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef>Value</th>
+        <td mat-cell *matCellDef="let row">{{row.value}}</td>
+      </ng-container>
+
+  
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+  <mat-paginator [length]="resultsLength" [pageSize]="10"  (page)="pageEvent = LoadMoreTransactions($event)"></mat-paginator>
+</div>
+
+</div>
+</div>
