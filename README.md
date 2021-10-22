@@ -1,3 +1,14 @@
+INSTRUCTIONS
+------------
+
+This application requires the following changes:
+
+ * under src/environments/ change the following line apiUrl: window['env']['apiUrl'] || 'hostIP:Port',
+
+
+Note: Encountered a problem during injecting environement variables within the docker container so it needs to be locally served! Apologies.
+
+
 # TransactionCrawlerAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
